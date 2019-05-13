@@ -1,6 +1,6 @@
 <?php
 
-echo '<h1 style="text-align: center;">欢迎使用DNMP！</h1>';
+echo '<h1 style="text-align: center;">欢迎使用DNMRP！</h1>';
 echo '<h2>版本信息</h2>';
 
 echo '<ul>';
@@ -13,6 +13,7 @@ echo '</ul>';
 echo '<h2>已安装扩展</h2>';
 printExtensions();
 
+print_r(get_loaded_extensions());
 
 /**
  * 获取MySQL版本
@@ -21,8 +22,8 @@ function getMysqlVersion()
 {
     if (extension_loaded('PDO_MYSQL')) {
         try {
-            $dbh = new PDO('mysql:host=mysql;dbname=mysql', 'root', '123456');
-            $sth = $dbh->query('SELECT VERSION() as version');
+            $dbh  = new PDO('mysql:host=mysql;dbname=mysql', 'root', '123456');
+            $sth  = $dbh->query('SELECT VERSION() as version');
             $info = $sth->fetch();
         } catch (PDOException $e) {
             return $e->getMessage();
@@ -65,3 +66,6 @@ function printExtensions()
     echo '</ol>';
 }
 
+var_dump('sodium sodium_crypto_aead_aes256gcm_decrypt是否可用:', function_exists("sodium_crypto_aead_aes256gcm_decrypt"));
+
+phpinfo();

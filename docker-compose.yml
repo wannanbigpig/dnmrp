@@ -23,9 +23,8 @@ services:
       - 9000:9000
     volumes:
       - ./www:/var/www/html:rw
-      - ./conf/php.ini:/usr/local/etc/php/php.ini:ro
+      - ./conf/php.ini:/usr/local/etc/php/php.ini:rw
       - ./conf/php-fpm.conf:/usr/local/etc/php-fpm.d/www.conf:rw
-      - ./conf/php/conf.d:/usr/local/etc/php/conf.d:rw
     restart: always
     cap_add:
       - SYS_PTRACE

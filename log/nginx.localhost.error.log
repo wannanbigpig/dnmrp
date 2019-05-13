@@ -30,3 +30,5 @@
 2019/05/13 15:23:16 [error] 7#7: *1 "/var/www/html/default/index.php" is not found (2: No such file or directory), client: 172.22.0.1, server: localhost, request: "GET / HTTP/1.1", host: "127.0.0.1"
 2019/05/13 15:23:16 [error] 7#7: *1 "/var/www/html/default/index.php" is not found (2: No such file or directory), client: 172.22.0.1, server: localhost, request: "GET / HTTP/1.1", host: "127.0.0.1"
 2019/05/13 15:23:17 [error] 7#7: *1 "/var/www/html/default/index.php" is not found (2: No such file or directory), client: 172.22.0.1, server: localhost, request: "GET / HTTP/1.1", host: "127.0.0.1"
+2019/05/13 16:52:22 [error] 6#6: *1 open() "/var/www/html/default/site/index" failed (2: No such file or directory), client: 172.22.0.1, server: localhost, request: "GET /site/index HTTP/1.1", host: "lml.hxng.com"
+2019/05/13 16:52:23 [error] 6#6: *1 open() "/var/www/html/default/favicon.ico" failed (2: No such file or directory), client: 172.22.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "lml.hxng.com", referrer: "http://lml.hxng.com/site/index"
