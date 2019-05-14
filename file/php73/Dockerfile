@@ -34,13 +34,18 @@ RUN apt-get update && apt-get install -y \
 
 
 # 复制扩展文件
-COPY ./ext /home/
+# COPY ./ext /home/
 
 # pecl 安装 扩展
-RUN pecl install /home/memcached-3.1.3.tgz && docker-php-ext-enable memcached \
-    && pecl install /home/redis-4.3.0.tgz && docker-php-ext-enable redis \
-    && pecl install /home/xdebug-2.7.2.tgz && docker-php-ext-enable xdebug \
-    && pecl install /home/swoole-4.3.3.tgz && docker-php-ext-enable swoole
+# RUN pecl install /home/memcached-3.1.3.tgz && docker-php-ext-enable memcached \
+#     && pecl install /home/redis-4.3.0.tgz && docker-php-ext-enable redis \
+#     && pecl install /home/xdebug-2.7.2.tgz && docker-php-ext-enable xdebug \
+#     && pecl install /home/swoole-4.3.3.tgz && docker-php-ext-enable swoole
+#     
+RUN pecl install memcached-3.1.3 && docker-php-ext-enable memcached \
+    && pecl install redis-4.3.0 && docker-php-ext-enable redis \
+    && pecl install xdebug-2.7.2 && docker-php-ext-enable xdebug \
+    && pecl install swoole-4.3.3 && docker-php-ext-enable swoole
 
 #安装php composer 如果无法安装可以下面的hash无法对应 到网站获取最新的hash值 https://getcomposer.org/download/
 RUN php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');" \
