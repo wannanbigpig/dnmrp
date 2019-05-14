@@ -16,9 +16,10 @@ services:
       - default
 
   php73:
-    build:
-      context: ./file
-      dockerfile: ./php73/Dockerfile
+#    build:
+#      context: ./file
+#      dockerfile: ./php73/Dockerfile
+    image: liuml/php
     ports:
       - 9000:9000
     volumes:
