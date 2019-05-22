@@ -16,6 +16,6 @@ docker-compose up
 
 
 ### 说明
-PHP的构建已经完成，扩展等和dockerfile中一样，并且上传到docker-hub，
-有特殊需求的话可以自行修改dockerfile，并且修改docker-compsoe.yml中注释部分，使用dockerfile构建
-file/ext目录下存放PHP扩展文件，可以去pecl下载
+> PHP的构建已经完成，扩展等和dockerfile中一样，并且上传到docker-hub，
+> 有特殊需求的话可以自行修改dockerfile，并且修改docker-compsoe.yml中注释部分，使用dockerfile构建
+> file/ext目录下存放PHP扩展文件，可以去pecl下载
