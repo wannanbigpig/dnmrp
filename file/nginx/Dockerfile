@@ -1,4 +1,4 @@
-FROM nginx:1.16-alpine
+FROM nginx:stable
 LABEL maintainer="liumenglei0211@163.com"
 
 # set timezome
