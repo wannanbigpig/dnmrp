@@ -12,6 +12,8 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 #     && mv /etc/apt/sources.list.tmp /etc/apt/sources.list \
 #     && rm -rf /etc/apt/sources.list.tmp
 
+RUN sed -i "s@http://deb.debian.org@http://mirrors.aliyun.com@g" /etc/apt/sources.list
+
 # 安装PHP扩展
 RUN apt-get update && apt-get install -y \
         libfreetype6-dev \
