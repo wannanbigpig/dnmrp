@@ -21,7 +21,8 @@ services:
     ports:
       - 9000:9000
     volumes:
-      - ./www:/var/www/html:rw
+      # - ./www:/var/www/html:rw
+      - /Users/liuml/data/anjieli/server/leixiaoan-api:/var/www/html:rw
       - ./conf/php/php.ini:/usr/local/etc/php/php.ini:rw
       - ./conf/php-fpm/php-fpm.conf:/usr/local/etc/php-fpm.d/www.conf:rw
     restart: always
