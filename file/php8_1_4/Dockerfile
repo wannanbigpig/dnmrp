@@ -12,9 +12,13 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 #     && mv /etc/apt/sources.list.tmp /etc/apt/sources.list \
 #     && rm -rf /etc/apt/sources.list.tmp
 
-RUN sed -i "s@http://deb.debian.org@http://mirrors.aliyun.com@g" /etc/apt/sources.list
+# 阿里云源
+# RUN sed -i "s@http://deb.debian.org@http://mirrors.aliyun.com@g" /etc/apt/sources.list
+# RUN apt-get clean
+
 
 # 安装PHP扩展
+# RUN apt-get update && apt-get install -y --fix-missing\
 RUN apt-get update && apt-get install -y \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
@@ -22,7 +26,7 @@ RUN apt-get update && apt-get install -y \
         libsodium-dev \
         libzip-dev \
         libssl-dev \
-		libxml2-dev \
+        libxml2-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd \
     && docker-php-ext-install zip \
@@ -42,8 +46,8 @@ RUN apt-get update && apt-get install -y \
 #     && pecl install /home/redis-4.3.0.tgz && docker-php-ext-enable redis \
 #     && pecl install /home/xdebug-2.7.2.tgz && docker-php-ext-enable xdebug \
 #     && pecl install /home/swoole-4.3.3.tgz && docker-php-ext-enable swoole
-#     
-RUN pecl install redis && docker-php-ext-enable redis 
+#
+RUN pecl install redis && docker-php-ext-enable redis
 
 #安装php composer 如果无法安装可以下面的hash无法对应 到网站获取最新的hash值 https://getcomposer.org/download/
 RUN php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');" \
@@ -54,7 +58,7 @@ RUN php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.ph
 # RUN rm -f /home/redis.tgz \
 #     && rm -f /home/xdebug.tgz \
 #     && rm -f /home/swoole.tgz \
-#     && rm -f /home/memcached.tgz 
+#     && rm -f /home/memcached.tgz
 
 WORKDIR /data
 
